@@ -72,6 +72,9 @@
 .es-toolbarButtonTool-link:before {
 	background-image: url(../images/link.png);
 }
+.es-toolbarButtonTool-tex:before {
+	background-image: url(../images/tex.png);
+}
 .es-toolbarButtonTool-clear:before {
 	background-image: url(../images/clear.png);
 }
@@ -120,7 +123,7 @@
 	padding-left: 0.75em;
 	padding-right: 24px;
 	background-image: url(../images/arrow-down.png);
-	background-position: 9em center;
+	background-position: 10em center;
 	background-repeat: no-repeat;
 }
 .es-toolbarDropdownTool .es-menuView {
@@ -128,7 +131,7 @@
 	top: -1px;
 }
 .es-toolbarDropdownTool-format {
-	width: 8em;
+	width: 9em;
 }
 .es-menuView-item[rel="heading-1"] span {
 	font-size: 188%;
@@ -157,3 +160,6 @@
 .es-menuView-item[rel="pre"] span {
 	font-family: monospace,"Courier New";
 }
+.es-menuView-item[rel="equation"] span {
+}
+

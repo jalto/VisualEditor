@@ -13,7 +13,7 @@ es.ClearButtonTool = function( toolbar, name, title ) {
 
 	// Properties
 	this.$.addClass( 'es-toolbarButtonTool-disabled' );
-	this.pattern = /(textStyle\/|link\/).*/;
+	this.pattern = /(textStyle\/|link\/|math\/).*/;
 };
 
 /* Methods */

@@ -90,6 +90,10 @@ es.ContentView.annotationRenderers = {
 		'open': '<span class="es-contentView-format-textStyle-italic">',
 		'close': '</span>'
 	},
+	'math/tex': {
+		'open': '<span class="es-contentView-format-textStyle-italic-withBorder">',
+		'close': '</span>'
+	},
 	'textStyle/strong': {
 		'open': '<span class="es-contentView-format-textStyle-strong">',
 		'close': '</span>'

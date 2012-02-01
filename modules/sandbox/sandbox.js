@@ -632,6 +632,7 @@ $(document).ready( function() {
 					this.$panel.html(
 						es.HtmlSerializer.stringify( documentModel.getPlainObject() )
 					);
+				MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 				}
 			},
 			'history': {

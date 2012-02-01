@@ -116,6 +116,7 @@ include( '../modules/sandbox/base.php' );
 		<script src="../modules/es/models/es.TableCellModel.js"></script>
 		<script src="../modules/es/models/es.HeadingModel.js"></script>
 		<script src="../modules/es/models/es.TransactionModel.js"></script>
+		<script src="../modules/es/models/es.EquationModel.js"></script>
 
 		<!-- Inspectors -->
 		<script src="../modules/es/inspectors/es.LinkInspector.js"></script>
@@ -145,8 +146,13 @@ include( '../modules/sandbox/base.php' );
 		<script src="../modules/es/views/es.TableRowView.js"></script>
 		<script src="../modules/es/views/es.TableCellView.js"></script>
 		<script src="../modules/es/views/es.HeadingView.js"></script>
+		<script src="../modules/es/views/es.EquationView.js"></script>
 
 		<!-- Demo -->
 		<script src="../modules/sandbox/sandbox.js"></script>
+		<script type="text/javascript"
+			src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+	</body>
 	</body>
 </html>

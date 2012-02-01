@@ -20,6 +20,7 @@
 	margin-left: 0;
 	margin-right: 0;
 }
+
 .es-listItemView > .es-viewBranchNode-firstChild {
 	margin: 0;
 }
@@ -30,6 +31,14 @@
 }
 .es-preView > * {
 	font-family: monospace,"Courier New";
+}
+
+.es-equationView {
+	padding: 1em;
+	border: 1px solid #2F6FAB;
+}
+.es-equationView > * {
+	font-style: italic;
 }
 
 .es-headingView-level1,

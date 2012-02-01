@@ -56,6 +56,11 @@ es.FormatDropdownTool = function( toolbar, name, title ) {
 			'name': 'pre',
 			'label': 'Preformatted',
 			'type' : 'pre'
+		},
+		{
+			'name': 'equation',
+			'label': 'Centered Equation',
+			'type' : 'equation'
 		}
 	] );
 };

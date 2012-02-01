@@ -256,9 +256,9 @@ es.SurfaceView.prototype.addInsertionAnnotation = function( annotation ) {
 es.SurfaceView.prototype.loadInsertionAnnotations = function( annotation ) {
 	this.insertionAnnotations =
 		this.model.getDocument().getAnnotationsFromOffset( this.currentSelection.to - 1 );
-	// Filter out annotations that aren't textStyles or links
+	// Filter out annotations that aren't textStyles or links or math
 	for ( var i = 0; i < this.insertionAnnotations.length; i++ ) {
-		if ( !this.insertionAnnotations[i].type.match( /(textStyle\/|link\/)/ ) ) {
+		if ( !this.insertionAnnotations[i].type.match( /(textStyle\/|link\/|math\/)/ ) ) {
 			this.insertionAnnotations.splice( i, 1 );
 			i--;
 		}
@@ -623,6 +623,10 @@ es.SurfaceView.prototype.onKeyDown = function( e ) {
 					case 66:
 						this.annotate( 'toggle', {'type': 'textStyle/bold' } );
 						return false;
+					// M (tex)
+                                        case 77:
+                                                this.annotate( 'toggle', {'type': 'math/tex' } );
+                                                return false;
 					// i (italic)
 					case 73:
 						this.annotate( 'toggle', {'type': 'textStyle/italic' } );

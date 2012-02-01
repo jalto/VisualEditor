@@ -84,6 +84,10 @@ es.HtmlSerializer.prototype.paragraph = function( node, raw ) {
 	}
 };
 
+es.HtmlSerializer.prototype.equation = function( node ) {
+	return '<script type=\"math/tex; mode=display\">' + this.content( node.content ) + '</script>';
+};
+
 es.HtmlSerializer.prototype.list = function( node ) {
 	var out = [],    // List of list nodes
 		bstack = [], // Bullet stack, previous element's listStyles
@@ -242,6 +246,11 @@ es.HtmlSerializer.prototype.content = function( node ) {
 					case 'object/template':
 					case 'object/hook':
 						annotationSerializer.add( annotation.range, annotation.data.html, '' );
+						break;
+					case 'math/tex':
+						annotationSerializer.addTags(
+							annotation.range, 'script', { 'type': annotation.type }
+						);
 						break;
 				}
 			}

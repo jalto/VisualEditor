@@ -80,6 +80,10 @@ es.WikitextSerializer.prototype.pre = function( node ) {
 	return ' ' + this.content( node.content ).replace( '\n', '\n ' );
 };
 
+es.WikitextSerializer.prototype.equation = function( node ) {
+	return ':<math>' + this.content( node.content ) + '<\\math>';
+};
+
 es.WikitextSerializer.prototype.list = function( node ) {
 	var symbolTable = {
 		'bullet': '*',
@@ -170,7 +174,8 @@ es.WikitextSerializer.prototype.content = function( node ) {
 				'textStyle/big': 'big',
 				'textStyle/small': 'small',
 				'textStyle/superScript': 'sup',
-				'textStyle/subScript': 'sub'
+				'textStyle/subScript': 'sub',
+				'math/tex': 'math'
 			},
 			markupTable = {
 				'textStyle/bold': "'''",

@@ -87,3 +87,11 @@
 .es-contentView-format-textStyle-superScript {
 	vertical-align: super;
 }
+
+.es-contentView-format-textStyle-italic-withBorder {
+	font-style: italic;
+	border-right: #2F6FAB 1px solid;
+	border-left: #2F6FAB 1px solid;
+	border-bottom: #2F6FAB 1px solid;
+	border-top: #2F6FAB 1px solid;
+}

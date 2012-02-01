@@ -80,6 +80,15 @@ es.Tool.tools.link = {
 	}
 };
 
+es.Tool.tools.tex = {
+	'constructor': es.AnnotationButtonTool,
+	'name': 'tex',
+	'title': 'Inline Equation (ctrl/cmd + M)',
+	'data': {
+		'annotation': { 'type': 'math/tex' }
+	}
+};
+
 /* Inheritance */
 
 es.extendClass( es.AnnotationButtonTool, es.ButtonTool );
