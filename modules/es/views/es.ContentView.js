@@ -176,7 +176,7 @@ es.ContentView.renderAnnotation = function( bias, annotation, stack ) {
 			out += typeof renderers[type].open === 'function' ?
 				renderers[type].open( annotation.data ) : renderers[type].open;
 		} else {
-			if ( stack[stack.length - 1] === annotation ) {
+			if ( stack[stack.length - 1].type == annotation.type ) {
 				// Remove annotation from top of the stack
 				stack.pop();
 				// Close annotation
@@ -184,8 +184,14 @@ es.ContentView.renderAnnotation = function( bias, annotation, stack ) {
 					renderers[type].close( annotation.data ) : renderers[type].close;
 			} else {
 				// Find the annotation in the stack
-				var depth = es.inArray( annotation, stack ),
-					i;
+				var depth;
+				for ( depth = 1; depth < stack.length; depth++) {
+					if ( depth === stack.length ) {
+						depth = -1;
+					} else if ( stack[depth] == annotation ) {
+						break;
+					}
+				}
 				if ( depth === -1 ) {
 					throw 'Invalid stack error. An element is missing from the stack.';
 				}
@@ -884,7 +890,9 @@ es.ContentView.prototype.getHtml = function( range, options ) {
 		stack = [],
 		chr,
 		i,
-		j;
+		j,
+		k,
+		counter;
 	for ( i = 0; i < data.length; i++ ) {
 		right = data[i];
 		leftPlain = typeof left === 'string';
@@ -902,13 +910,25 @@ es.ContentView.prototype.getHtml = function( range, options ) {
 		} else if ( !leftPlain && !rightPlain ) {
 			// [formatted][formatted] pair, open/close any differences
 			for ( j = 1; j < left.length; j++ ) {
-				if ( es.inArray( left[j], right ) === -1 ) {
+				counter = 0;
+				for ( k = 1; k < right.length; k++ ) {
+					if ( left[j].type == right[k].type ) {
+						counter++;
+					}
+				}
+				if ( counter < 1 ) {
 					out += render( 'close', left[j], stack );
 				}
 			}
-			for ( j = 1; j < right.length; j++ ) {
-				if ( es.inArray( right[j], left ) === -1 ) {
-					out += render( 'open', right[j], stack );
+			for ( k = 1; k < right.length; k++ ) {
+				counter = 0;
+				for ( j = 1; j < left.length; j++ ) {
+					if ( left[j].type == right[k].type ) {
+						counter++;
+					}
+				}
+				if ( counter < 1 ) {
+					out += render( 'open', right[k], stack );
 				}
 			}
 		}
